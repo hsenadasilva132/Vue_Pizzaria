@@ -1,0 +1,89 @@
+{
+    "ingredientes": {
+      "massa": [
+        {
+          "id": 1,
+          "tipo": "Napolitana"
+        },
+        {
+          "id": 2,
+          "tipo": "Toscana"
+        },
+        {
+          "id": 3,
+          "tipo": "Siciliana"
+        },
+        {
+          "id": 4,
+          "tipo": "Nova-Iorquina"
+        }
+      ],
+      "Queijos": [
+        {
+          "id": 1,
+          "tipo": "Muçarela"
+        },
+        {
+          "id": 2,
+          "tipo": "Provolone"
+        },
+        {
+          "id": 3,
+          "tipo": "Cheddar"
+        },
+        {
+          "id": 4,
+          "tipo": "Gorgonzola"
+        },
+        {
+            "id": 5,
+            "tipo": "Parmigiano-Reggiano"
+        }
+      ],
+      "opcionais": [
+        {
+          "id": 1,
+          "tipo": "Calabresa"
+        },
+        {
+          "id": 2,
+          "tipo": "Batata-doce"
+        },
+        {
+          "id": 3,
+          "tipo": "Pimentão"
+        },
+        {
+          "id": 4,
+          "tipo": "Alecrim"
+        },
+        {
+          "id": 4,
+          "tipo": "Catupiry"
+        },
+        {
+          "id": 4,
+          "tipo": "Pepperoni"
+        },
+        {
+            "id": 5,
+            "tipo": "Atum"
+        }
+      ]
+    },
+    "status": [
+      {
+        "id": 1,
+        "tipo": "Solicitado"
+      },
+      {
+        "id": 2,
+        "tipo": "Em produção"
+      },
+      {
+        "id": 3,
+        "tipo": "Finalizado"
+      }
+    ],
+    "burgers": []
+  }
