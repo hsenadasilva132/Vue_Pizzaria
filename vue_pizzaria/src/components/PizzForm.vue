@@ -1,3 +1,12 @@
+                    </div>
+                    <div class="input-container">
+                        <label for="queijos">Escolha o queijo da sua pizza:</label>
+                    <select name="queijos" id="queijos" value="" v-model="queijo">
+                        <option value="" name="queijo" :v-model="queijo">Selecione o tipo de queijo</option>
+                        <option v-for="queijos in queijo" :key="queijos.id" :value="queijos.data"> 
+                            {{ queijos.tipo }}</option>
+                    </select>
+                    </div>
                     <div id="opcionais-container" class="input-container">
                         <label id="opcionais-title" for="opcionais">Selecione os opcionais:</label>
                         <div class="checkbox-container" v-for="opcional in opcionaisdata" :key="opcional.id">
@@ -22,10 +31,12 @@
         return {
             //dados do servidor 
             massas: null,
+            queijo: [],
             opcionaisdata: null,
             //
             nome: null,
             massa: [],
+            queijos: [],
             opcionais: [],
             status: "solicitado",
             msg: null
