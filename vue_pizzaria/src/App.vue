@@ -42,8 +42,9 @@ export default {
 
   h1 {
     text-align: center;
-    font-size: 42px;
+    font-size: 58px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-bottom: 30px;
-    color: #222;
+    color: #E6531D;
   }
 </style>
