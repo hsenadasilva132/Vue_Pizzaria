@@ -1,9 +1,34 @@
+<template>
+    <div>
+        <div>
+            <p>Componente de mensagem</p>
+            <div>
+                <form id="pizz-form">
+                    <div class="input-container">
+                        <label for="nome">Nome do cliene</label>
+                        <input type="text" id="nome" name="nome" v-model="nome" placeholder="DIGITE O SEU NOME">
+                    </div>
+
+
+                    <div class="input-container">
+                        <label for="massa">Escolha a Massa</label>
+                    <select name="massa" id="massa" v-model="massas.data" value="massas">
+                        <option value="">Selecione a massa</option>
+                        <!--<option v-for="massa in massas" :key="massa.tipo" :value="massa">
+                            {{ massas.tipo }}</option> -->
+                            <option v-for="(massa, index) in massas" v-bind:key="index.id" :value="massa.tipo">
+                                {{ massa.tipo }}</option>
+                    </select>
+                   
+                        
                     </div>
                     <div class="input-container">
                         <label for="queijos">Escolha o queijo da sua pizza:</label>
-                    <select name="queijos" id="queijos" value="" v-model="queijo">
-                        <option value="" name="queijo" :v-model="queijo">Selecione o tipo de queijo</option>
-                        <option v-for="queijos in queijo" :key="queijos.id" :value="queijos.data"> 
+                    <select name="queijos" id="queijos" value="queijo" v-model="queijo.data">
+                       <!-- <option v-for="queijos in queijo" :key="queijos.tipo" name="queijo" :v-model="queijo.tipo">
+                            Selecione o tipo de queijo</option> -->
+                        <option value="queijos">Selecione o tipo de queijo</option>
+                        <option v-for="queijos in queijo" v-bind:key="queijos.tipo" :value="queijo"> 
                             {{ queijos.tipo }}</option>
                     </select>
                     </div>
@@ -30,7 +55,7 @@
      data() {
         return {
             //dados do servidor 
-            massas: null,
+            massas: [],
             queijo: [],
             opcionaisdata: null,
             //
@@ -48,6 +73,7 @@
 
             const req = await fetch("http://localhost:3000/ingredientes"); //Esse código faz uma requisição assíncrona e aguardando a resposta
             const data = await req.json(); //Esperando resolver a requisição, transformar em json para poder ter dados.
+
 
             console.log(data);
 
