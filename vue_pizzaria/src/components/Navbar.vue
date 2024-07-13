@@ -4,8 +4,8 @@
         <router-link to="/" id="logo-url"> <!--to definido com barra para indicar que ao clicar no logo vai direcionar para o home-->
             <img :src="logo" :alt="alt">
         </router-link>
-           <router-link to="/">Home</router-link> |
-           <router-link to="/Pedidos">Pedidos</router-link>
+           <router-link to="/" class="options-nav">HOME</router-link> |
+           <router-link to="/Pedidos" class="options-nav">PEDIDOS</router-link>
       </nav>
     </div>
 </template>
@@ -38,7 +38,9 @@ export default {
    }
 
    nav a {
-    color: #FCDA03;
+    color: #E6531D;
+    font-size: 0.8em;
+    font-weight: 700;
     text-decoration: none;
     margin: 12px;
     transition: .5s;
