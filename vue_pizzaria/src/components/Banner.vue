@@ -21,6 +21,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    border-bottom: 4px solid #E6531D;
   }
 
   #main-banner h1 {
