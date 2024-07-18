@@ -3,9 +3,9 @@
         <div>
             <p>Componente de mensagem</p>
             <div>
-                <form id="pizz-form">
+                <form id="pizz-form" @submit="createPizza">
                     <div class="input-container">
-                        <label for="nome">Nome do cliene</label>
+                        <label for="nome">Nome do cliente</label>
                         <input type="text" id="nome" name="nome" v-model="nome" placeholder="DIGITE O SEU NOME">
                     </div>
 
@@ -24,13 +24,15 @@
                     </div>
                     <div class="input-container">
                         <label for="queijos">Escolha o queijo da sua pizza:</label>
-                    <select name="queijos" id="queijos" value="queijo" v-model="queijo.data">
-                       <!-- <option v-for="queijos in queijo" :key="queijos.tipo" name="queijo" :v-model="queijo.tipo">
-                            Selecione o tipo de queijo</option> -->
+                    <select name="queijos" id="queijos" v-model="queijo.data" value="queijo.tipo">
+                         <option v-for="queijo in queijo" :key="queijo.tipo" :value="queijo.tipo">
+                          {{ queijo.tipo }} </option>
+                    </select>
+                   <!-- <select name="queijos" id="queijos" value="queijo" v-model="queijo.data">
                         <option value="queijos">Selecione o tipo de queijo</option>
                         <option v-for="queijos in queijo" v-bind:key="queijos.tipo" :value="queijo"> 
                             {{ queijos.tipo }}</option>
-                    </select>
+                    </select> -->
                     </div>
                     <div id="opcionais-container" class="input-container">
                         <label id="opcionais-title" for="opcionais">Selecione os opcionais:</label>
@@ -60,10 +62,9 @@
             opcionaisdata: null,
             //
             nome: null,
-            massa: [],
+            massa: null,
             queijos: [],
             opcionais: [],
-            status: "solicitado",
             msg: null
 
         }
@@ -80,6 +81,19 @@
             this.massas = data.massa;
             this.queijo = data.queijos;
             this.opcionaisdata = data.opcionais;
+        },
+        async createPizza(e) {
+
+           e.preventDefault();
+
+           const data = {
+            nome: this.nome,
+            massa: this.massas.data,
+            queijos: this.queijo.data, 
+            status: "solicitado"
+           }
+
+           console.log(data);
         }
      },
      mounted() {
