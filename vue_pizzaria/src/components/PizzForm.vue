@@ -37,10 +37,13 @@
                     <div id="opcionais-container" class="input-container">
                         <label id="opcionais-title" for="opcionais">Selecione os opcionais:</label>
                         <div class="checkbox-container" v-for="(opcional, index) in opcionaisdata" :key="index.id">
+                          <input type="checkbox" name="opcionais" :id="opcional.tipo" :value="opcional.data" :v-model="opcionaisdata">
+                           <span>{{ opcional.tipo }}</span>
+                       <!-- <div class="checkbox-container" v-for="(opcional, index) in opcionaisdata" :key="index.id">p
                             <input type="checkbox" name="opcionais" :v-model="opcionais" :value="opcional.data">
                             <span>{{ opcional.tipo }}</span>
-                        </div>         
-                    
+                        </div> -->      
+                      </div>
                     </div>
                     <div class="input-container">
                         <input type="submit" class="submit-btn" value="CRIAR MINHA PIZZA!">
@@ -52,6 +55,8 @@
 </template>
 
 <script>
+import { toRaw } from 'vue';
+
   export default {
      name: "PizzForm",
      data() {
@@ -59,7 +64,7 @@
             //dados do servidor 
             massas: [],
             queijo: [],
-            opcionaisdata: null,
+            opcionaisdata: [],
             //
             nome: null,
             massa: null,
@@ -82,6 +87,14 @@
             this.queijo = data.queijos;
             this.opcionaisdata = data.opcionais;
         },
+        getSelectedCheckboxes() {
+          const checkboxes = document.querySelectorAll('input[name=opcionais]');
+
+          const selectedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked).map(checkbox => checkbox.id);
+          
+          return selectedCheckboxes;
+        },
+
         async createPizza(e) {
 
            e.preventDefault();
@@ -90,6 +103,7 @@
             nome: this.nome,
             massa: this.massas.data,
             queijos: this.queijo.data, 
+            opcionais: this.getSelectedCheckboxes(),
             status: "solicitado"
            }
 
