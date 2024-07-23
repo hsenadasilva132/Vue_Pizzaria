@@ -31,4 +31,32 @@
     background-color: transparent;
     padding: 20px 40px;
   }
+
+  @media(max-width: 375px) {
+    #main-banner {
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+  }
+
+  @media(max-width: 425px) {
+     #main-banner {
+      background-size: cover;
+      background-position: 40% 60%;
+     }
+  }
+
+  @media(max-width: 768px) {
+    #main-banner {
+      background-size: cover;
+      background-position: 20% 80%;
+    }
+  }
+
+  @media(max-width: 1024px) {
+    #main-banner {
+      background-size: cover;
+      background-position: 80% 20%;
+    }
+  }
 </style>
