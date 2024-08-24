@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <p>Componente de mensagem</p>
+            <Message :msg="msg" v-show="msg"/>
             <div>
                 <form id="pizz-form" @submit="createPizza">
                     <div class="input-container">
@@ -14,8 +14,6 @@
                         <label for="massa">Escolha a Massa</label>
                     <select name="massa" id="massa" v-model="massas.data" value="massas">
                         <option value="">Selecione a massa</option>
-                        <!--<option v-for="massa in massas" :key="massa.tipo" :value="massa">
-                            {{ massas.tipo }}</option> -->
                             <option v-for="(massa, index) in massas" v-bind:key="index.id" :value="massa.tipo">
                                 {{ massa.tipo }}</option>
                     </select>
@@ -28,21 +26,13 @@
                          <option v-for="queijo in queijo" :key="queijo.tipo" :value="queijo.tipo">
                           {{ queijo.tipo }} </option>
                     </select>
-                   <!-- <select name="queijos" id="queijos" value="queijo" v-model="queijo.data">
-                        <option value="queijos">Selecione o tipo de queijo</option>
-                        <option v-for="queijos in queijo" v-bind:key="queijos.tipo" :value="queijo"> 
-                            {{ queijos.tipo }}</option>
-                    </select> -->
                     </div>
+
                     <div id="opcionais-container" class="input-container">
                         <label id="opcionais-title" for="opcionais">Selecione os opcionais:</label>
                         <div class="checkbox-container" v-for="(opcional, index) in opcionaisdata" :key="index.id">
                           <input type="checkbox" name="opcionais" :id="opcional.tipo" :value="opcional.data" :v-model="opcionaisdata">
-                           <span>{{ opcional.tipo }}</span>
-                       <!-- <div class="checkbox-container" v-for="(opcional, index) in opcionaisdata" :key="index.id">p
-                            <input type="checkbox" name="opcionais" :v-model="opcionais" :value="opcional.data">
-                            <span>{{ opcional.tipo }}</span>
-                        </div> -->      
+                           <span>{{ opcional.tipo }}</span>     
                       </div>
                     </div>
                     <div class="input-container">
@@ -56,6 +46,8 @@
 
 <script>
 import { toRaw } from 'vue';
+import Message from './Message.vue'
+
 
   export default {
      name: "PizzForm",
@@ -108,10 +100,34 @@ import { toRaw } from 'vue';
            }
 
            console.log(data);
-        }
+
+           const dataJson = JSON.stringify(data); // Transformar o dado em texto para o servidor
+
+           const req = await fetch("http://localhost:3000/pizzas", { //Envia uma requisição HTTP POST para o servidor na URL.
+            method: "POST", // Especifica que a requisição é do tipo POST
+            headers: { "content-type": "application/json" }, //Informa ao servidor que o corpo da requisição está no formato JSON
+            body: dataJson //Envia a string JSON dataJson como o corpo da requisição.
+           }); // Envia os dados para o servidor para serem processados ou armazenados. 
+
+           const res = await req.json();
+           console.log(res);
+           
+           // Colocar uma msg do sistema
+           this.msg = `Pedido N° ${res.id} realizado com sucesso!`
+           // Limpar msg
+           setTimeout(() => this.msg = "", 3000);
+           //limpar os campos
+         /*  this.nome = "";
+           this.massas = "";
+           this.queijo = "";
+           this.opcionais = ""; */
+        },
      },
      mounted() {
-        this.getIngredientes()
+        this.getIngredientes();
+     },
+     components: {
+       Message
      }
   }
 </script>

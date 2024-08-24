@@ -1,101 +1,148 @@
 {
-    "ingredientes": {
-      "massa": [
-        {
-          "id": 1,
-          "tipo": "Napolitana"
-        },
-        {
-          "id": 2,
-          "tipo": "Toscana"
-        },
-        {
-          "id": 3,
-          "tipo": "Siciliana"
-        },
-        {
-          "id": 4,
-          "tipo": "Nova-Iorquina"
-        },
-        {
-          "id": 5,
-          "tipo": "Tradicional"
-        }
-      ],
-      "queijos": [
-        {
-          "id": 1,
-          "tipo": "Muçarela"
-        },
-        {
-          "id": 2,
-          "tipo": "Provolone"
-        },
-        {
-          "id": 3,
-          "tipo": "Cheddar"
-        },
-        {
-          "id": 4,
-          "tipo": "Gorgonzola"
-        },
-        {
-            "id": 5,
-            "tipo": "Parmigiano-Reggiano"
-        },
-        {
-          "id": 6,
-          "tipo": "Brie"
-        }
-      ],
-      "opcionais": [
-        {
-          "id": 1,
-          "tipo": "Calabresa"
-        },
-        {
-          "id": 2,
-          "tipo": "Batata-doce"
-        },
-        {
-          "id": 3,
-          "tipo": "Pimentão"
-        },
-        {
-          "id": 4,
-          "tipo": "Alecrim"
-        },
-        {
-          "id": 4,
-          "tipo": "Catupiry"
-        },
-        {
-          "id": 4,
-          "tipo": "Pepperoni"
-        },
-        {
-            "id": 5,
-            "tipo": "Atum"
-        },
-        {
-          "id": 6,
-          "tipo": "Marguerita"
-        }
-      ]
-    },
-    "status": [
+  "ingredientes": {
+    "massa": [
       {
         "id": 1,
-        "tipo": "Solicitado"
+        "tipo": "Napolitana"
       },
       {
         "id": 2,
-        "tipo": "Em produção"
+        "tipo": "Toscana"
       },
       {
         "id": 3,
-        "tipo": "Finalizado"
+        "tipo": "Siciliana"
+      },
+      {
+        "id": 4,
+        "tipo": "Nova-Iorquina"
+      },
+      {
+        "id": 5,
+        "tipo": "Tradicional"
       }
     ],
-    "burgers": []
-  }
+    "queijos": [
+      {
+        "id": 1,
+        "tipo": "Muçarela"
+      },
+      {
+        "id": 2,
+        "tipo": "Provolone"
+      },
+      {
+        "id": 3,
+        "tipo": "Cheddar"
+      },
+      {
+        "id": 4,
+        "tipo": "Gorgonzola"
+      },
+      {
+        "id": 5,
+        "tipo": "Parmigiano-Reggiano"
+      },
+      {
+        "id": 6,
+        "tipo": "Brie"
+      }
+    ],
+    "opcionais": [
+      {
+        "id": 1,
+        "tipo": "Calabresa"
+      },
+      {
+        "id": 2,
+        "tipo": "Batata-doce"
+      },
+      {
+        "id": 3,
+        "tipo": "Pimentão"
+      },
+      {
+        "id": 4,
+        "tipo": "Alecrim"
+      },
+      {
+        "id": 4,
+        "tipo": "Catupiry"
+      },
+      {
+        "id": 4,
+        "tipo": "Pepperoni"
+      },
+      {
+        "id": 5,
+        "tipo": "Atum"
+      },
+      {
+        "id": 6,
+        "tipo": "Marguerita"
+      }
+    ]
+  },
+  "status": [
+    {
+      "id": "1",
+      "tipo": "Solicitado"
+    },
+    {
+      "id": "2",
+      "tipo": "Em produção"
+    },
+    {
+      "id": "3",
+      "tipo": "Finalizado"
+    }
+  ],
+  "pizzas": [
+    {
+      "id": "b97b",
+      "nome": "Henrique",
+      "massa": "Napolitana",
+      "queijos": "Muçarela",
+      "opcionais": [
+        "Calabresa",
+        "Pimentão"
+      ],
+      "status": "solicitado"
+    },
+    {
+      "id": "33a2",
+      "nome": "Henrique",
+      "massa": "Napolitana",
+      "queijos": "Provolone",
+      "opcionais": [
+        "Calabresa",
+        "Pimentão"
+      ],
+      "status": "solicitado"
+    },
+    {
+      "id": "950d",
+      "nome": "Sena",
+      "massa": "Napolitana",
+      "queijos": "Muçarela",
+      "opcionais": [
+        "Calabresa",
+        "Pimentão",
+        "Catupiry"
+      ],
+      "status": "solicitado"
+    },
+    {
+      "id": "085a",
+      "nome": "Sena",
+      "massa": "Nova-Iorquina",
+      "queijos": "Provolone",
+      "opcionais": [
+        "Calabresa",
+        "Pimentão",
+        "Alecrim"
+      ],
+      "status": "solicitado"
+    }
+  ]
+}
