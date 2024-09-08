@@ -19,8 +19,8 @@
                     <div>{{ item.queijos }}</div>
                     <div>
                         <ul>
-                            <li v-for="(item, opci) in pizza" :key="opci">
-                                {{ item.opcionais }}
+                            <li v-for="(opcional, opciIndex) in item.opcionais" :key="opciIndex">
+                                {{ opcional }}   
                             </li>
                         </ul>
                     </div>
