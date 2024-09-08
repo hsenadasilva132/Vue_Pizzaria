@@ -18,9 +18,18 @@
                     <div>{{ item.massa }}</div>
                     <div>{{ item.queijos }}</div>
                     <div>
+                        <!--
+                        Ajuste interno:
+                        O problema estava sobre pizza.opcionais que estava iterando errado, 
+                        fazendo com que todos os opcionais fossem exibidos.
+                        
+                        Solução:
+                        item.opcionais itera corretamente, buscando os opcionais de cada pizza especifica.
+                        --> 
+                        
                         <ul>
                             <li v-for="(opcional, opciIndex) in item.opcionais" :key="opciIndex">
-                                {{ opcional }}   
+                                {{ opcional }}  
                             </li>
                         </ul>
                     </div>
