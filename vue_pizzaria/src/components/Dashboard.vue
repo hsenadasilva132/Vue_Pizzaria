@@ -76,6 +76,10 @@
     flex-wrap: wrap;
    }
 
+   .pizza-table-row div {
+    font-weight: bolder;
+   }
+
    #pizza-table-heading {
     font-weight: bold;
     padding: 12px;
