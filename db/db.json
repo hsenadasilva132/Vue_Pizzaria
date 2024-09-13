@@ -146,7 +146,7 @@
     },
     {
       "id": "5de7",
-      "nome": "PATRIQUE SENA DA SILVA",
+      "nome": "Patrique Sena",
       "massa": "Nova-Iorquina",
       "queijos": "Gorgonzola",
       "opcionais": [
@@ -175,6 +175,39 @@
         "Calabresa",
         "Pimentão",
         "Catupiry"
+      ],
+      "status": "solicitado"
+    },
+    {
+      "id": "fc1a",
+      "nome": "Jaque",
+      "massa": "Napolitana",
+      "queijos": "Muçarela",
+      "opcionais": [
+        "Batata-doce",
+        "Alecrim"
+      ],
+      "status": "solicitado"
+    },
+    {
+      "id": "8552",
+      "nome": "Henrique",
+      "massa": "Toscana",
+      "queijos": "Gorgonzola",
+      "opcionais": [
+        "Catupiry",
+        "Atum",
+        "Marguerita"
+      ],
+      "status": "solicitado"
+    },
+    {
+      "id": "023a",
+      "nome": "Gabriel Sena Da Silva",
+      "massa": "Napolitana",
+      "queijos": "Parmigiano-Reggiano",
+      "opcionais": [
+        "Calabresa"
       ],
       "status": "solicitado"
     }
