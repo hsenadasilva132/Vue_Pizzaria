@@ -33,6 +33,15 @@
                             </li>
                         </ul>
                     </div>
+                    <div>
+                    <select name="status" class="status">
+                        <option value="">Selecione</option>
+                        <option v-for="s in status" :key="s.id" :value="s.id">
+                            {{ s.tipo }}
+                        </option>
+                    </select>
+                    <button class="delete-btn">Cancelar</button>
+                </div>
                     
                 </div> <!---->
             </div>
@@ -49,7 +58,7 @@
         return {
             pizza: null,
             pizzas_id: null,
-            status: null
+            status: []
         }
     },
     methods: {
@@ -64,10 +73,29 @@
             console.log(this.pizza);
 
             //resgatar os status
+            this.getStatus();
+        },
+        async getStatus() {
+            const req = await fetch("http://localhost:3000/status");
+
+            const data = await req.json(); //Adicionado await, 
+            /* 
+            sem o await a promisse estava sendo atribuida para a variável data,
+            e não aos dados reais.
+            O await faz com que a função assíncrona pause até que a promessa seja resolvida,
+            permitindo que trabalhe diretamente com os dados reais.
+            */
+
+            console.log('Status data:', data); 
+
+            this.status = data;
+
+            
         }
     },
     mounted() {
-       this.getPedidos();
+       this.getPedidos("componente montado");
+       this.getStatus();
     },
   }
 </script>
@@ -118,7 +146,7 @@
 
    .delete-btn {
     background-color: #222;
-    color: #FCBA03;
+    color: #E6531D;
     font-weight: bold;
     border: 2px solid #222;
     padding: 10px;
@@ -129,7 +157,7 @@
    }
 
    .delete-btn:hover {
-    background-color: transparent;
+    background-color: #E6531D;
     color: #222;
    }
 </style>
